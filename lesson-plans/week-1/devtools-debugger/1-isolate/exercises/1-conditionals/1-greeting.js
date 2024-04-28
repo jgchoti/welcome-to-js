@@ -1,16 +1,24 @@
 'use strict';
 
-let input = prompt('enter your name:');
+function greeting() {
+  let firstName = prompt('enter your  first name:');
+  let lastName = prompt('enter your  last name:');
 
-let greeting = '';
-if (input === null) {
-  greeting = 'hello anonymous.';
-} else {
-  greeting = 'hello ' + input + '!';
+  let greeting = '';
+  if (firstName === null || lastName === null) {
+    greeting = 'hello anonymous.';
+  } else if (firstName === '') {
+    greeting = 'enter your  first name:';
+    firstName = prompt('enter your  first name:');
+  } else if (lastName === '') {
+    greeting = 'enter your  last name:';
+    lastName = prompt('enter your  last name:');
+  } else {
+    greeting = `hello ${firstName} ${lastName}!`;
+    alert(greeting);
+  }  
 }
-
-alert(greeting);
-
+greeting();
 /*  ===== Challenges =====
   - Ask the user for their first and last names.
   - Greet them with their full name.
